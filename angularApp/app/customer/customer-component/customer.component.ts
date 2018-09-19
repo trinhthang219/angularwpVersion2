@@ -1,7 +1,7 @@
 import { Component, OnInit} from "@angular/core";
 // import { customers } from './customers'
-import { Customer } from '../customer-models/customer.model'
-import { CustomerServices } from '../customer-services/customer.services'
+import { Customer } from '../shared/customer-models/customer.model'
+import { CustomerServices } from '../shared/customer-services/customer.services'
 import { trigger, state, style, transition, animate } from "@angular/animations";
 @Component({
     selector: 'app-customer-component',

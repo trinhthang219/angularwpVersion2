@@ -1,0 +1,13 @@
+<div>
+  <form (ngSubmit)="onSubmit()" [formGroup]="form">
+    <div *ngFor="let column of customerColumns">
+      <app-column [column]="column" [form]="form"></app-column>
+    </div>
+    <div>
+      <button type="submit" [disabled]="!form.valid">Save</button>
+    </div>
+  </form>
+  <div *ngIf="payLoad">
+    <strong>Saved the following values</strong><br>{{payLoad}}
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<div [formGroup]="form">
+  <label [attr.for]="column.key">{{column.label}}</label>
+
+  <div [ngSwitch]="column.controlType">
+
+    <input *ngSwitchCase="'textbox'" [formControlName]="column.key" [id]="column.key" [type]="column.type">
+    
+    <div class="form-group row" *ngSwitchCase="'dropdown'">
+      <button class="btn btn-change-order"><i class="fa fa-arrows"></i></button>
+      <select class="form-control select-field" [id]="column.key" [formControlName]="column.key">
+        <option *ngFor="let opt of column.options" [value]="opt.key">{{opt.value}}</option>
+      </select>
+      <!-- <button *ngIf="invoiceForm.controls.itemRows.controls.length > 1" (click)="deleteRow(i)" class="btn btn-danger"><i class="fa fa-close"></i></button> -->
+      <button (click)="deleteRow(i)" class="btn btn-delete-field"><i class="fa fa-close"></i></button>
+    </div>
+    <!-- <select class="form-control select-field" [id]="column.key" *ngSwitchCase="'dropdown'" [formControlName]="column.key">
+      <option *ngFor="let opt of column.options" [value]="opt.key">{{opt.value}}</option>
+    </select> -->
+
+  </div>
+
+  <div class="errorMessage" *ngIf="!isValid">{{column.label}} is required</div>
+</div>

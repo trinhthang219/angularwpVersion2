@@ -1,54 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormArray, FormGroup } from '@angular/forms';
-
+// import { FormBuilder, FormArray, FormGroup, FormControl, Validators } from '@angular/forms';
+import { CustomerServices } from '../shared/customer-services/customer.services'
 @Component({
-    selector: 'app-customer-column-options',       
-    templateUrl: './customer-column-options.component.html',
-    styleUrls: ['./customer-column-options.component.scss']
-  })
-  
-  export class CustomerColumnOptionsComponent implements OnInit {
-    invoiceForm: FormGroup;
+  selector: 'app-customer-column-options',
+  templateUrl: './customer-column-options.component.html',
+  styleUrls: ['./customer-column-options.component.scss'],
+  providers:  [CustomerServices]
+})
 
-    constructor(
-      private _fb: FormBuilder
-    ) {
-      this.createForm();
-    }
-  
-    createForm(){
-      this.invoiceForm = this._fb.group({
-        itemRows: this._fb.array([])
-      });
-      this.invoiceForm.setControl('itemRows', this._fb.array([]));
-    }
-  
-    get itemRows(): FormArray {
-      return this.invoiceForm.get('itemRows') as FormArray;
-    }
-  
-    addNewRow() {
-      // control refers to your formarray
-      const control = <FormArray>this.invoiceForm.controls['itemRows'];
-      // add new formgroup
-      control.push(this.initItemRows());
+export class CustomerColumnOptionsComponent implements OnInit {
+  customerColumns: any[];
+  ngOnInit() {
+
   }
-  
-  deleteRow(index: number) {
-      // control refers to your formarray
-      const control = <FormArray>this.invoiceForm.controls['itemRows'];
-      // remove the chosen row
-      control.removeAt(index);
+  constructor(service: CustomerServices) {
+    this.customerColumns = service.getColumnMetaData();
   }
-    initItemRows() {
-        return this._fb.group({
-            // list all your form controls here, which belongs to your form array
-            itemname: ['']
-        });
-    }
-    ngOnInit() {
-        this.invoiceForm = this._fb.group({
-          itemRows: this._fb.array([this.initItemRows()]) // here
-        });
-      }
-  }
+}

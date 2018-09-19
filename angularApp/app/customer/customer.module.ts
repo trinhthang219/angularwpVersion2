@@ -6,9 +6,11 @@ import { CustomerDetailComponent } from './customer-detail-component/customer-de
 import { GridModule } from '@progress/kendo-angular-grid';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {CustomerColumnOptionsComponent} from './customer-column-options.component/customer-column-options.component';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CustomerColumnOptionsComponent } from './customer-column-options.component/customer-column-options.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { DynamicFormComponent } from './customer-column-options.component/custom-form/dynamic-form.component';
+import { DynamicFormQuestionComponent } from './customer-column-options.component/custom-control/dynamic-form-question.component';
 @NgModule({
     imports: [
         CommonModule,
@@ -16,10 +18,11 @@ import {CustomerColumnOptionsComponent} from './customer-column-options.componen
         HttpModule,
         FormsModule,
         GridModule,
-        NgbModule        
+        NgbModule,
+        ReactiveFormsModule        
     ],
     declarations: [
-        CustomerComponent, CustomerDetailComponent,CustomerColumnOptionsComponent
+        CustomerComponent, CustomerDetailComponent,CustomerColumnOptionsComponent,DynamicFormComponent,DynamicFormQuestionComponent
     ],
 
 })
