@@ -1,0 +1,49 @@
+// .button-add-column{
+//     border: 0px;
+// }
+:host {
+    position: fixed;
+    left: auto;
+    top: 56px;
+    right: 0;
+    bottom: 0;
+    min-width: 400px;
+    z-index: 9999;
+    background-color: white;
+    border-style: groove;
+  }
+  
+  ul {
+    list-style: none;
+  }
+  .button-close-column-option{      
+    background-color: white;
+    position: absolute;
+    right: 0px;
+    // margin: 15px;    
+  }
+  .btn-delete-field{
+      max-width: 10%;
+      background-color: white;
+  }
+  .btn-change-order{
+      max-width: 10%;
+      background-color: white;
+  }
+  .select-field{
+      width: 80%;
+  }
+  .button-add-column{
+    background-color: white;
+  }
+  .foot-actions{
+    position: absolute; 
+    bottom: 0;
+    margin: 15px;
+    padding: 15px;
+  }
+  .btn-footer{
+      margin: 15px;
+      padding-left: 15px;
+      padding-right: 15px;
+  }

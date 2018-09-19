@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="row" style="margin:15px">
+        <h4 style="margin:6px">Column Options</h4> 
+        <button type="button" id="btnClose" class="btn float-right button-close-column-option"><i class="fa fa-close" style="font-size:32px;"></i></button> 
+    </div>
+    <!-- <form [formGroup]="invoiceForm"> -->
+        <!-- <div formArrayName="itemRows"> -->
+            <!-- <div *ngFor="let itemrow of invoiceForm.controls.itemRows.controls; let i=index"  [formGroupName]="i"> -->
+                <div class="form-group row">
+                    <button class="btn btn-change-order"><i class="fa fa-arrows"></i></button>
+                    <select class="form-control select-field">
+                        <option>Contact Name</option>
+                        <option selected>Email</option>
+                        <option>Phone</option>
+                        <option>Company Name</option>
+                        <option>Account Name</option>
+                    </select>
+                    <!-- <button *ngIf="invoiceForm.controls.itemRows.controls.length > 1" (click)="deleteRow(i)" class="btn btn-danger"><i class="fa fa-close"></i></button> -->
+                    <button (click)="deleteRow(i)" class="btn btn-delete-field"><i class="fa fa-close"></i></button>
+                </div>
+                <div class="form-group row">
+                    <button class="btn btn-change-order"><i class="fa fa-arrows"></i></button>
+                    <select class="form-control select-field">
+                        <option selected>Contact Name</option>
+                        <option>Email</option>
+                        <option>Phone</option>
+                        <option>Company Name</option>
+                        <option>Account Name</option>
+                    </select>
+                    <button (click)="deleteRow(i)" class="btn btn-delete-field"><i class="fa fa-close"></i></button>
+                </div>
+            <!-- </div> -->
+        <!-- </div> -->
+        <button type="button" (click)="addNewRow()" class="btn button button-add-column"><i class="fa fa-plus" style="margin-right:30px"></i>     Add a column</button>
+    <!-- </form> -->
+    <div class="foot-actions">
+        <button class="btn btn-danger btn-footer" id="btnApply">Apply</button>
+        <button class="btn btn-footer" id="btnCancel">Cancel</button>
+    </div>
+</div>

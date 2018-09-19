@@ -1,0 +1,37 @@
+// @import "~@progress/kendo-theme-default/scss/grid";
+@import "~@progress/kendo-theme-default/scss/all";
+.action-button-frame{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    position: relative;
+}
+.icon-approve{
+    color: green;
+}
+.icon-reject{
+    color: red;
+}
+.button{
+    margin-right: 15px;
+}
+.checkbox-show-main-contact{
+    margin-right: 5px;
+}
+.left-align{
+    float: left;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+.right-align{
+    float: right;
+    margin-left: 15px;
+    position: absolute;
+    right: 0px;
+}
+.new-customer-button{
+    background-color: red;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: white;
+    float: right;
+}
