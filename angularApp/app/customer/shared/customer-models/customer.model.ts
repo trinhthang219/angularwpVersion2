@@ -32,20 +32,20 @@ export class Customer {
     this.CompanyPresident = "";
     this.PhoneNumber = "";
     this.Email = "";
-    this.PostCode =  "";
-    this.Id =  0;
-    this.IsHeadQuarter =  false;
-    this.Address1 =  "";
-    this.Address2 =  "";
-    this.City =  "";
-    this.StateOrProvince =  "";
-    this.ZipCode =  "";
-    this.Country =  "";
-    this.FaxNumber =  "";
-    this.CompanyWebsite =  "";
-    this.PaymentMethod =  "";
-    this.Description =  "";
-    this.BankAccount =  {
+    this.PostCode = "";
+    this.Id = 0;
+    this.IsHeadQuarter = false;
+    this.Address1 = "";
+    this.Address2 = "";
+    this.City = "";
+    this.StateOrProvince = "";
+    this.ZipCode = "";
+    this.Country = "";
+    this.FaxNumber = "";
+    this.CompanyWebsite = "";
+    this.PaymentMethod = "";
+    this.Description = "";
+    this.BankAccount = {
       publicBankName: "",
       BankAddress: "",
       AccountName: "",

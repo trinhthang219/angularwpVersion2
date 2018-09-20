@@ -1,6 +1,6 @@
-import { QuestionBase } from '../custom-form-services/question-base';
+import { ControlBase } from './base.field';
 
-export class TextboxQuestion extends QuestionBase<string> {
+export class TextboxColumnOption extends ControlBase<string> {
   controlType = 'textbox';
   type: string;
 

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {APP_BASE_HREF} from '@angular/common';
+import { APP_BASE_HREF } from '@angular/common';
 import { AppComponent } from './app.component';
 import { AppRoutes } from './app.routes';
 import { CoreModule } from './core/core.module';
@@ -24,8 +24,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     declarations: [
         AppComponent
     ],
-    providers: [{provide: APP_BASE_HREF, useValue : '/' }], //Configuration.CDN_URL
+    providers: [{ provide: APP_BASE_HREF, useValue: '/' }],  //Configuration.CDN_URL
     bootstrap: [AppComponent],
 })
 
 export class AppModule { }
+

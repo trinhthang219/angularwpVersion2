@@ -10,7 +10,7 @@
     "url": ""
   },
   "scripts": {
-    "start": "concurrently \"webpack-dev-server --env=dev --open --hot --inline --port 8080\" \"dotnet run\" ",
+    "start": "webpack-dev-server --env=dev --open --hot --inline --port 8080",
     "webpack-dev": "webpack --env=dev",
     "webpack-production": "webpack --env=prod",
     "build-dev": "npm run webpack-dev",

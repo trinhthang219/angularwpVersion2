@@ -1,6 +1,6 @@
-import { QuestionBase } from '../custom-form-services/question-base';
+import { ControlBase } from './base.field';
 
-export class DropdownQuestion extends QuestionBase<string> {
+export class DropdownColumnOption extends ControlBase<string> {
   controlType = 'dropdown';
   options: {key: string, value: string}[] = [];
 

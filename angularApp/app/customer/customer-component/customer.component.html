@@ -1,56 +1,37 @@
-﻿
-<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+﻿<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
 
 <!-- [filter]="state.filter" -->
 <div class="action-button-frame row">
     <div class="left-align">
-        <button id="btnColumnOption" (click)="toggleMenu()" class="btn button"><i class="fa fa-columns"></i> Column Options</button>
+        <button id="btnColumnOption" (click)="toggleMenu()" class="btn button"><i class="fa fa-columns"></i> Column
+            Options</button>
         <button id="btnApprove" class="btn button"><i class="fa fa-check-square-o icon-approve"></i> Approve</button>
         <button id="btnReject" class="btn button"><i class="fa fa-ban icon-reject"></i> Reject</button>
         <button id="btnDelete" class="btn button"><i class="fa fa-trash"></i> Delete</button>
-        <input  id="chkShowMainContactPointOnly" type="checkbox" checked="checked" class="checkbox-show-main-contact" />
+        <input id="chkShowMainContactPointOnly" type="checkbox" checked="checked" class="checkbox-show-main-contact" />
         <label for="chkShowMainContactPointOnly"> Show Main Contact Point Only</label>
     </div>
     <div class="right-align">
         <div ngbDropdown class="d-inline-block">
-            <button class="btn btn-outline button" id="mnSettings" ngbDropdownToggle><i class="fa fa-cogs"></i> Settings ...</button>
+            <button class="btn btn-outline button" id="mnSettings" ngbDropdownToggle><i class="fa fa-cogs"></i>
+                Settings ...</button>
             <div ngbDropdownMenu aria-labelledby="mnSettings">
                 <button class="dropdown-item" id="mnApprovalProcess">Approval Process</button>
                 <button class="dropdown-item" id="mnAdministrator">Administrator</button>
             </div>
         </div>
-        <button id="btnNewCustomer" class="btn button new-customer-button float-right"><i class="fa fa-plus"></i> New Customer</button>        
+        <button id="btnNewCustomer" class="btn button new-customer-button float-right"><i class="fa fa-plus"></i> New
+            Customer</button>
     </div>
 </div>
-<app-customer-column-options id="divColumnOptions" [@slideInOut]="menuState"></app-customer-column-options>
+<app-column-options id="divColumnOptions" [activeColumns]="activeColumns" [allColumns]="allColumns" [@slideInOut]="columnPanelState"
+    (closeColumnPanel)="closeColumnPanel($event)" (columnOptionsChange)="columnOptionsChange($event)">
+</app-column-options>
 
-<kendo-grid [kendoGridBinding]="gridData" 
-    [height]="410" 
-    sortable=true 
-    groupable=true 
-    filterable=true 
-    [skip]="state.skip" 
-    [sort]="state.sort" [pageSize]="state.take"
-    [group]="state.group">
-    <kendo-grid-column field="ID">
-        <ng-template kendoGridCellTemplate let-dataItem>
-            <!-- <div class="customer-photo" [style.backgroundImage]="getUrl(dataItem.Id)"></div> -->
-            <div class="customer-name">
-                {{ dataItem.Id }}
-            </div>
-        </ng-template>
-    </kendo-grid-column>
-    <kendo-grid-column field="CompanyName"></kendo-grid-column>
-    <kendo-grid-column field="CompanyPresident"></kendo-grid-column>
-    <kendo-grid-column field="Address1"></kendo-grid-column>
-    <kendo-grid-column field="Address2"></kendo-grid-column>
-    <kendo-grid-column field="City"></kendo-grid-column>
-    <kendo-grid-column field="StateOrProvince"></kendo-grid-column>
-    <kendo-grid-column field="ZipCode"></kendo-grid-column>
-    <kendo-grid-column field="Country"></kendo-grid-column>
-    <kendo-grid-column field="PhoneNumber"></kendo-grid-column>
-    <kendo-grid-column field="FaxNumber"></kendo-grid-column>
-    <kendo-grid-column field="CompanyWebsite"></kendo-grid-column>
-    <kendo-grid-column field="PaymentMethod"></kendo-grid-column>
-    <kendo-grid-column field="Description"></kendo-grid-column>
-</kendo-grid>
+
+<kendo-grid [data]="gridData" sortable=true groupable=true filterable=true [skip]="state.skip" [sort]="state.sort"
+    [pageSize]="state.take" [group]="state.group" style="height:400px">
+    <ng-template ngFor [ngForOf]="activeColumns" let-column>
+        <kendo-grid-column field="{{column.key}}">
+        </kendo-grid-column>
+    </ng-template>

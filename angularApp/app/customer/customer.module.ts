@@ -7,10 +7,10 @@ import { GridModule } from '@progress/kendo-angular-grid';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { CustomerColumnOptionsComponent } from './customer-column-options.component/customer-column-options.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { DynamicFormComponent } from './customer-column-options.component/custom-form/dynamic-form.component';
-import { DynamicFormQuestionComponent } from './customer-column-options.component/custom-control/dynamic-form-question.component';
+import { CustomerColumnOptionsComponent } from './column-options-component/column-options.component';
+import { ColumnOptionsRowComponent } from './column-options-component/row/column-options-row.component';
+
 @NgModule({
     imports: [
         CommonModule,
@@ -19,12 +19,14 @@ import { DynamicFormQuestionComponent } from './customer-column-options.componen
         FormsModule,
         GridModule,
         NgbModule,
-        ReactiveFormsModule        
+        ReactiveFormsModule
     ],
     declarations: [
-        CustomerComponent, CustomerDetailComponent,CustomerColumnOptionsComponent,DynamicFormComponent,DynamicFormQuestionComponent
+        CustomerComponent,
+        CustomerDetailComponent,
+        CustomerColumnOptionsComponent,
+        ColumnOptionsRowComponent
     ],
-
 })
 
 export class CustomerModule { }

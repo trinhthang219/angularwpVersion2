@@ -1,0 +1,20 @@
+<div [formGroup]="form">
+  <!-- <label [attr.for]="column.key">{{column.key}}</label> -->
+  <div [ngSwitch]="column.controlType">
+    <!-- Textbox -->
+    <input *ngSwitchCase="'textbox'" [formControlName]="column.key" [id]="column.key" [type]="column.type">
+    <!-- End Textbot -->
+    <!-- Dropdown List  -->
+    <div class="form-group row" *ngSwitchCase="'dropdown'">
+      <span class="btn btn-change-order" ><i class="fa fa-arrows"></i></span>
+      <select class="form-control select-field" [id]="column.key" [formControlName]="column.key" [compareWith]="compareFn">
+        <option *ngFor="let opt of column.options" [ngValue]="opt">{{opt.value}}</option>
+      </select>
+      <span (click)="delete(column.key, column.order)" class="btn btn-delete-field">
+        <i class="fa fa-close"></i>
+      </span>
+    </div>
+    <!-- End Dropdown List -->
+  </div>
+  <div class="errorMessage" *ngIf="!isValid"><h6>{{column.label}} is required</h6></div>
+</div>

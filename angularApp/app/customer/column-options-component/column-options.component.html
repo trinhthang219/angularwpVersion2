@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <h4>Column Options</h4>
+    <button type="button" id="btnClose" (click)="closePanel()" class="btn float-right button-close-column-option">
+      <i class="fa fa-close" style="font-size:32px;"></i>
+    </button>
+  </div>
+  <!-- <column-options [columnMetadata]="columnMetadata"></column-options> -->
+  <div>
+    <form (ngSubmit)="onSubmit()" [formGroup]="form">
+      <div *ngFor="let column of columnMetadata">
+        <app-column [column]="column" [form]="form" (deleteRow)="deleteRow($event[0],$event[1])"></app-column>
+      </div>
+      <div *ngIf="formdata">
+        <strong>Saved the following values</strong><br>{{formdata}}
+      </div>
+      <button (click)="addNewRow() ; $event.preventDefault()" class="btn btn-default">Add</button>
+
+      <div class="foot-actions">
+        <button class="btn btn-danger btn-footer" id="btnApply" type="submit" [disabled]="!form.valid">Save</button>
+        <button class="btn btn-footer" id="btnCancel" (click)="revert()">Cancel</button>
+      </div>
+    </form>
+
+  </div>
+
+</div>

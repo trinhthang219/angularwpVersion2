@@ -7,4 +7,4 @@ export const routes: Routes = [
     { path: '**', loadChildren: './customer/customer.module#CustomerModule' },
 ];
 
-export const AppRoutes = RouterModule.forRoot(routes ,{useHash: true});
+export const AppRoutes = RouterModule.forRoot(routes, { useHash: true });
